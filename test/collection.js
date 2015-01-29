@@ -1494,5 +1494,21 @@
     collection.add([{id: 3}], {at: '1'});
     deepEqual(collection.pluck('id'), [1, 3, 2]);
   });
+  
+  test("adding false-y things to a collection", function() {
+    var collection = new Backbone.Collection();
+	collection.add(null);
+	equal(collection.length, 0);
+	collection.add(false);
+	equal(collection.length, 0);
+	collection.add(undefined);
+	equal(collection.length, 0);
+  });
+  
+  test("adding an array of false-y to collection", function() {
+    var collection = new Backbone.Collection();
+	collection.add( [null, false, undefined] );
+	equal(collection.length, 0);
+  });
 
 })();

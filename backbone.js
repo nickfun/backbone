@@ -726,6 +726,7 @@
       // from being added.
       for (var i = 0, length = models.length; i < length; i++) {
         attrs = models[i];
+		//if (!attrs) continue;
 
         // If a duplicate is found, prevent it from being added and
         // optionally merge it into the existing model.
